@@ -10,19 +10,28 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="8mn-OQ-09v">
             <objects>
-                <viewController id="CO6-Cp-0zH" sceneMemberID="viewController">
+                <viewController id="CO6-Cp-0zH" customClass="SettingsViewController" customModule="tip_calculator" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b9r-bc-4jf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="LRK-ax-8D4"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4zQ-AG-9Eg" appends="YES" id="2h1-aH-761"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="2BR-Is-7uc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTJ-Lg-1h4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4zQ-AG-9Eg">
+                    <connections>
+                        <action selector="on_tap:" destination="CO6-Cp-0zH" id="y5R-J8-pwE"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1756" y="133"/>
         </scene>
@@ -104,13 +113,23 @@
                             <outletCollection property="gestureRecognizers" destination="ZOi-YY-YNG" appends="YES" id="Xr8-gZ-96X"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tip Calculator" id="e5Q-n0-Y54"/>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="e5Q-n0-Y54">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="wQ9-fr-a7o">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HAY-Me-lYR">
+                                <rect key="frame" x="302" y="7" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="CO6-Cp-0zH" kind="push" id="PqA-cY-e7s"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bill_field" destination="SHZ-JT-yfm" id="ZCG-Js-Zw8"/>
                         <outlet property="tip_control" destination="84l-0u-afc" id="S9H-oU-WA4"/>
                         <outlet property="tip_label" destination="ZC7-l7-yXb" id="xVY-3B-gGr"/>
                         <outlet property="total_label" destination="L5u-5q-xFw" id="fLV-U8-QVz"/>
-                        <segue destination="CO6-Cp-0zH" kind="push" id="kVg-tC-FL5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -120,7 +139,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="932" y="133"/>
+            <point key="canvasLocation" x="932" y="132.68365817091455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N5j-6f-eWK">
