@@ -10,6 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="8mn-OQ-09v">
+            <objects>
+                <viewController id="CO6-Cp-0zH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b9r-bc-4jf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="LRK-ax-8D4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2BR-Is-7uc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTJ-Lg-1h4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1756" y="133"/>
+        </scene>
         <!--Tip Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -94,6 +110,7 @@
                         <outlet property="tip_control" destination="84l-0u-afc" id="S9H-oU-WA4"/>
                         <outlet property="tip_label" destination="ZC7-l7-yXb" id="xVY-3B-gGr"/>
                         <outlet property="total_label" destination="L5u-5q-xFw" id="fLV-U8-QVz"/>
+                        <segue destination="CO6-Cp-0zH" kind="push" id="kVg-tC-FL5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -103,7 +120,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="860" y="132.68365817091455"/>
+            <point key="canvasLocation" x="932" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N5j-6f-eWK">
