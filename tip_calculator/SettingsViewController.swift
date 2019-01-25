@@ -9,16 +9,35 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    @IBOutlet weak var percentage_field: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func on_tap(_ sender: Any) {
-        print("Tapped in Settings")
+    @IBAction func change_default_percentage(_ sender: Any) {
+        // New
+        // Using notification to store new default percentage
+        let new_default = Int(percentage_field.text!) ?? 10
+        var dict: Dictionary<String, AnyObject> = Dictionary()
+        dict.updateValue(new_default as AnyObject, forKey: "default_percentage")
+        
+        NotificationCenter.default.post(name: Notification.Name("tip_notification"), object: nil, userInfo: dict)
+        
+//        _ = self.navigationController?.popViewController(animated: true)
+        
+        // Old
+        // Access UserDefaults
+        let defaults = UserDefaults.standard
+        
+        defaults.set(Int(percentage_field.text!) ?? 10, forKey: "default_percentage")
+        
+        // Force UserDefaults to save.
+        defaults.synchronize()
     }
+    
     
     /*
     // MARK: - Navigation

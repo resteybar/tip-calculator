@@ -17,23 +17,37 @@
                     <view key="view" contentMode="scaleToFill" id="b9r-bc-4jf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWm-IK-hta">
+                                <rect key="frame" x="144" y="268" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="change_default_percentage:" destination="CO6-Cp-0zH" eventType="editingChanged" id="Hg2-lg-n2j"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Default Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxF-Eb-Esd">
+                                <rect key="frame" x="82" y="199" width="211" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="LRK-ax-8D4"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="4zQ-AG-9Eg" appends="YES" id="2h1-aH-761"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="2BR-Is-7uc"/>
+                    <connections>
+                        <outlet property="percentage_field" destination="NWm-IK-hta" id="wbB-9i-PAK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTJ-Lg-1h4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="4zQ-AG-9Eg">
-                    <connections>
-                        <action selector="on_tap:" destination="CO6-Cp-0zH" id="y5R-J8-pwE"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1756" y="133"/>
+            <point key="canvasLocation" x="1756" y="132.68365817091455"/>
         </scene>
         <!--Tip Calculator-->
         <scene sceneID="tne-QT-ifu">
@@ -103,6 +117,7 @@
                                 </segments>
                                 <connections>
                                     <action selector="calculate_tip:" destination="BYZ-38-t0r" eventType="valueChanged" id="Tui-xH-ecW"/>
+                                    <action selector="tip_control:" destination="VgQ-ya-vuR" eventType="valueChanged" id="nV3-IC-fqR"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -133,6 +148,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="VgQ-ya-vuR" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="ZOi-YY-YNG">
                     <connections>
                         <action selector="on_tap:" destination="BYZ-38-t0r" id="YP0-Ku-n03"/>
