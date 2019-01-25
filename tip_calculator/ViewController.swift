@@ -50,9 +50,16 @@ class ViewController: UIViewController {
         total_label.text = String(format: "$%.2f", total)
     }
     
-    // * Updates Default % from SettingsViewController
-    @objc func notification_fired(_ notification: Notification) {
+    // Updating Default %
+    //  - Codepath Solution
+    override func viewWillAppear(_ animated: Bool) {
         update_info(is_notified: true)
+    }
+    
+    //  - Youtube Solution
+    //      * Updates Default % from SettingsViewController
+    @objc func notification_fired(_ notification: Notification) {
+//        update_info(is_notified: true)
     }
 
     // * Edits to bill_field will update Tip & Total
