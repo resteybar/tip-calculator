@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
         
         // Notifies notification_fired() in ViewController
         //  - Automatically updates default_tip
-        NotificationCenter.default.post(name: Notification.Name("tip_notification"), object: nil, userInfo: nil)
+//        NotificationCenter.default.post(name: Notification.Name("tip_notification"), object: nil, userInfo: nil)
     }
     
     

@@ -6,11 +6,21 @@
 //  Copyright © 2019 Raymond Esteybar. All rights reserved.
 //
 
+/*
+    Extra Resources Used:
+        NotificationCenter Tutorial
+            - https://www.youtube.com/watch?v=iztROUzjpM0
+        Animation Tutorial
+            - https://www.raywenderlich.com/363-ios-animation-tutorial-getting-started
+*/
+
 import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tip_label: UILabel!
+    @IBOutlet weak var tip_title: UILabel!
     @IBOutlet weak var total_label: UILabel!
+    @IBOutlet weak var total_title: UILabel!
     @IBOutlet weak var bill_field: UITextField!
     @IBOutlet weak var tip_control: UISegmentedControl!
     
@@ -23,7 +33,6 @@ class ViewController: UIViewController {
         tip_control.setTitle(String(format: "%d%%", default_percentage), forSegmentAt: 0)
         
         // * Used to Automatically update the default tip from different view
-        //  - Tutorial used: https://www.youtube.com/watch?v=iztROUzjpM0
         NotificationCenter.default.addObserver(self, selector: #selector(notification_fired(_:)), name: Notification.Name("tip_notification"), object: nil)
     }
     
@@ -52,14 +61,44 @@ class ViewController: UIViewController {
     
     // Updating Default %
     //  - Codepath Solution
+    //  - Setup for Animations
     override func viewWillAppear(_ animated: Bool) {
+        tip_label.center.x -= view.bounds.width
+        total_label.center.x -= view.bounds.width
+        tip_title.center.x -= view.bounds.width
+        total_title.center.x -= view.bounds.width
+        
         update_info(is_notified: true)
+    }
+    
+    // Animations
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.8, delay: 0.0,
+            options: [.autoreverse],
+            animations: { () -> Void in
+                self.bill_field.transform = CGAffineTransform(translationX: 0, y: -10)
+            },
+            completion: nil
+        )
+        
+        UIView.animate(withDuration: 0.5) {
+            self.tip_label.center.x += self.view.bounds.width
+            self.tip_title.center.x += self.view.bounds.width
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 0.3, options: [],
+            animations: {
+                self.total_label.center.x += self.view.bounds.width
+                self.total_title.center.x += self.view.bounds.width
+            },
+            completion: nil
+        )
     }
     
     //  - Youtube Solution
     //      * Updates Default % from SettingsViewController
     @objc func notification_fired(_ notification: Notification) {
-//        update_info(is_notified: true)
+        update_info(is_notified: true)
     }
 
     // * Edits to bill_field will update Tip & Total
