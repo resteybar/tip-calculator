@@ -73,6 +73,10 @@ class ViewController: UIViewController {
     
     // Animations
     override func viewDidAppear(_ animated: Bool) {
+        
+        // Ensures the # pad shows first
+        bill_field.becomeFirstResponder()
+        
         UIView.animate(withDuration: 0.8, delay: 0.0,
             options: [.autoreverse],
             animations: { () -> Void in
