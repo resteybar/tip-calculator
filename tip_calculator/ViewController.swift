@@ -113,7 +113,7 @@ class ViewController: UIViewController {
     // Applies to View
     @IBAction func on_tap(_ sender: Any) {
         // Dismiss Keyboard
-        view.endEditing(true)
+//        view.endEditing(true)
     }
 }
 

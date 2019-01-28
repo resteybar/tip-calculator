@@ -22,13 +22,19 @@ class SettingsViewController: UIViewController {
         let defaults = UserDefaults.standard
         print(percentage_field.text!)
         defaults.set(Int(percentage_field.text!) ?? 10, forKey: "default_percentage")
-        
+
         // Force UserDefaults to save.
         defaults.synchronize()
         
         // Notifies notification_fired() in ViewController
         //  - Automatically updates default_tip
 //        NotificationCenter.default.post(name: Notification.Name("tip_notification"), object: nil, userInfo: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        // Ensures the # pad shows first
+        percentage_field.becomeFirstResponder()
     }
     
     
